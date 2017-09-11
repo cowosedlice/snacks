@@ -1,0 +1,19 @@
+{block content}   
+
+<!-- Page Content -->
+    <div class="container">
+
+        <h1 class="my-4">{$username}<span class="font-weight-normal"> - Historie objednávek</span>
+      </h1>  
+      
+        <h1 class="my-4"><span class="font-weight-normal">Celková útrata - </span>{$priceSum} Kč
+      </h1>       
+        
+        <div class="row" n:foreach="$history as $order">
+          <div class="col-md-3">{$order->productName}</div>
+          <div class="col-md-1">{$order->price} Kč</div>
+          <div class="col-md-7">{$order->timestamp}</div>
+        </div>        
+
+    </div>
+    <!-- /.container -->

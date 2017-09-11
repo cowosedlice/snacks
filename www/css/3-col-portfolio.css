@@ -1,0 +1,73 @@
+/*!
+ * Start Bootstrap - 3 Col Portfolio (http://startbootstrap.com/template-overviews/3-col-portfolio)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-3-col-portfolio/blob/master/LICENSE)
+ */
+
+body {
+
+}
+
+@media (min-width: 992px) {
+    body {
+    }
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+.pagination {
+    margin-bottom: 30px;
+}
+
+.card-text {
+    font-size: 2.0em;
+}
+
+.back-to-homepage {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.back-to-homepage .card {
+    background-color: #c8e3ff;
+}
+
+.back-to-homepage .card .card-body {
+    padding: 60px;
+}
+
+.hide {
+    display: none;
+}
+
+.card-img-top {
+  object-fit: cover; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+ 
+  width: 100%;
+  height: 130px;
+  margin-bottom: 1rem;    
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 0;
+    padding-left: 1.25rem;
+}
+
+.price {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.gray {
+    color: gray;
+}

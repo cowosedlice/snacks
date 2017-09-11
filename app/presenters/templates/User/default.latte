@@ -1,0 +1,59 @@
+{block content}   
+
+
+<!-- Page Content -->
+    <div class="container">
+
+     
+        
+      <!-- Page Heading -->
+      <h1 class="my-4">Osobo, co jsi zač?
+      </h1>
+
+      
+
+      <div class="row">
+        <div n:foreach="$users as $user" class="col-lg-2 col-sm-6 portfolio-item"  onclick='location.href = {link Homepage:default $user->id,$productId}'>
+          <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="{$basePath}/images/users/{$user->id}.jpg" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">{$user->name}</a>
+              </h4>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.row -->
+      
+      <!-- Page Heading -->
+      <h1 class="my-4">Tvá objednávka
+      </h1>        
+        
+      <div class="row">
+        <div class="col-lg-3 col-sm-6 portfolio-item">
+          <div class="card h-100">
+              <img class="card-img-top" src="{$basePath}/images/products/{$product->id}.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                {$product->name}
+              </h4>
+            </div>
+          </div>
+        </div>
+              
+        <div class="col-lg-3 col-sm-6 back-to-homepage" onclick='location.href = {link Homepage:default}'>
+          <div class="card h-100">
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">Zpět na výběr zdravé výživy</a>
+              </h4>
+            </div>
+          </div>
+        </div>              
+
+      </div>       
+
+    </div>
+    <!-- /.container -->

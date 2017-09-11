@@ -1,0 +1,83 @@
+{block content}   
+
+<!-- Page Content -->
+    <div class="container">
+
+        {if $ordered=='yes'}
+            
+            <h1 class="my-4">Právě objednáno
+            </h1>             
+            
+            {define timeout}60{/define}
+            
+            {foreach $history as $order}
+            <div class="row list-group-item-success">
+
+            {if $order->timestamp > $timestamp}            
+              <div class="col-md-3 py-2">{$order->productName}</div>
+              <div class="col-md-1 py-2">{$order->price} Kč</div>
+              <div class="col-md-2 py-2" onclick='location.href = {link User:history $order->user}'><a n:href="User:history $order->user">{$order->name}</a></div>
+              <div class="col-md-1 py-2">{$order->timestamp|date:'%H:%M'}</div>
+              <div class="col-md-2 py-2">{$order->timestamp|date:'%d.%m.%Y'}</div>
+              <div class="col-md-3  py-2 list-group-item-danger" onclick='location.href = {link Product:delete $order->id}'><a n:href="Product:delete $order->id">smazat</a></div>
+            {/if}
+            </div>            
+            {/foreach}
+        {/if}
+      
+        
+      <!-- Page Heading -->
+      <h1 class="my-4">Co si dáš?
+      </h1>
+
+      
+
+      <div class="row">
+        <div n:foreach="$products as $product" class="col-lg-3 col-sm-4 portfolio-item" onclick='location.href = {link User:default $product->id}'>
+          <div class="card h-100">
+            <a href="#"><img class="card-img-top" src="{$basePath}/images/products/{$product->id}.jpg" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">{$product->name}</a>
+              </h4>
+                <p class="price">{$product->price} Kč<span class="gray">  [{if $product->stock>100}&infin;{else}{$product->stock}x{/if}]</span></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    
+      
+      <h1 class="my-4">Poslední objednávky
+      </h1>        
+        
+        <div class="row" n:foreach="$history as $order">
+            
+          <div class="col-md-3 py-2">{$order->productName}</div>
+          <div class="col-md-1 py-2">{$order->price} Kč</div>
+          <div class="col-md-2 py-2" onclick='location.href = {link User:history $order->user}'><a n:href="User:history $order->user">{$order->name}</a></div>
+          <div class="col-md-1 py-2">{$order->timestamp|date:'%H:%M'}</div>
+          <div class="col-md-2 py-2">{$order->timestamp|date:'%d.%m.%Y'}</div>
+        </div>         
+        
+      <h1 class="my-4">Celkový dluh / Import do dlužníčku
+      </h1>         
+      
+        {foreach $dluznicek as $user}
+
+            <div class="row">
+
+                <div class="col-md-2 py-2" onclick='location.href = {link User:history $user->user}'><a n:href="User:history $user->user">{$user->name}</a></div>
+              <div class="col-md-2 py-2">{$user->sum} Kč</div>
+            </div>
+        {/foreach}
+        <div class="row">
+
+          <div class="col-md-2 py-2 font-weight-bold">Celkem</div>
+          <div class="col-md-2 py-2 font-weight-bold">{$dluznicekAll} Kč</div>
+        </div>           
+        
+    </div>
+    <!-- /.container -->
